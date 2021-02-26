@@ -175,21 +175,20 @@ export default {
         },
         //登录提交
         pwdlog(){
-            var that = this;
             this.$route
             this.axios.post('../../qyuser/newlogin_pwd.jsp', 'mobile=13814525083&password=123456'
             ,{headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}}
-            ).then(function (response) {
+            ).then((response)=> {
                 console.log(response);
-                that.userList = response.data.data
-                if(that.userList.length > 1){
-                    that.manyUsers = true
+                this.userList = response.data.data
+                if(this.userList.length > 1){
+                    this.manyUsers = true
                 }
-                for(var i=0; i<that.userList.length; i++){
-                    if(i=0){
-                        that.isCheckedList.push(true);
+                for(let i=0; i<this.userList.length; i++){
+                    if( i === 0 ) {
+                        this.isCheckedList.push(true);
                     }else {
-                        that.isCheckedList.push(false);
+                        this.isCheckedList.push(false);
                     }
                 }
             }).catch(function (error) {

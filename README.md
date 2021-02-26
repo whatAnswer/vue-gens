@@ -1,4 +1,4 @@
-# ky-gens
+# vue-gens
 
 ## Project setup
 ```
